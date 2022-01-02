@@ -1,0 +1,110 @@
+<div class="container" id="overall-container-div">
+    {{>header}}
+    <div class="container" id="person-info-container">
+        <div class="row">
+            <div class="col-md-9" id="profile-pic-div">
+                <image src="{{people.img_url}}" class-"align-self-end" id="profile-img" alt="profile pic">
+            </div>
+            <div class="col-md-3" id="inbox-button-div">
+                
+
+                 <form action="/like/{{people.id}}" method="POST">
+                <button type="button" class="btn-primary align-self-end" id="inbox-button">Message</button><p></p>
+                    <button  id="like-button" class="btn btn-primary align-self-end" type="submit">Like</button>
+                    
+                    </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 align-self-end" id="person-name-div">
+                <p>{{people.name}}</p>
+                <!--Needs to get data from database-->
+            </div>
+            <div class="col-md-2 align-self-end" id="person-likes-div">
+                <p>Likes</p>
+                <!--Needs to get/post data from/to database-->
+                <p id="numberss">{{likesnumber}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-9 align-self-end" id="person-role-div">
+                <p>{{people.description}}</p>
+                <!--Needs to get data from database-->
+            </div>
+            <div class="col-md-3 align-self-end" id="person-likes-div">
+                <p>posts</p>
+                <p id="numberss">{{postNumber}}</p>
+                <!--Needs to get data from database-->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col align-self-end" id="person-location-div">
+                <p>{{people.country}}</p>
+                <!--Needs to get data from database-->
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col align-self-end" id="person-post-title-div">
+            <p id="person-post-title-p">All posts by {{people.name}}</p>
+        </div>
+    </div>
+
+    {{!-- Post container --}}
+    <div class="container" id="person-all-post-container">
+        {{#if postsByUserDataHasData}}
+        {{img}}
+            {{#each postsByUserData}}
+            <div class="row" id="person-post-row">
+                <div class="col-md-3" id="post-pic-div">
+                    <img class="artisImg" id="post-profile-img" src = "{{this.img_url}}"/>
+                    
+                </div>
+                <div class="col-md-9" id="single-post-container">
+                    <div class="row" id="post-title-row">
+                        <div class="col-md-10" id="post-title-col">
+                            <p id="post-title">{{this.title}}</p>
+                        </div>
+                        <div class="col-md-2" id="post-category-col">
+                            <p id="post-category">{{this.topic}}</p>
+                        </div>
+                    </div>
+                    <div class="row" id="post-content-row">
+                        <div class="col">
+                            <p id="post-content">{{this.topic_desc}}</p>
+                        </div>
+                    </div>
+                    <div class="row" id="post-date-reply-toggle-row">
+                        {{!~~Maybe on click function for opening replies here in this row~~}}
+                        <div class="col">
+                            <p id="post-date">{{this.date}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        {{else}}
+        <p id="numberss">NO POST RESULT</p>
+        {{/if}}
+
+
+    </div>
+
+    {{!-- Post container --}}
+
+
+    {{!-- Post container --}}
+
+
+
+</div>
+
+{{!-- <img class="artistImg" style="width:50px;" src={{people.img_url}} />
+<div> 
+    <p><b>{{people.name}}</b></p>
+        <p><b>id: {{people.id}}</b></p>
+    <p>{{people.description}} <a href="/like/{{this.id}}" id="delButton" class="btn btn-success">Like</a></p>
+    
+</div> --}}

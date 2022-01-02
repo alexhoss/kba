@@ -1,0 +1,12 @@
+<link rel="stylesheet" type="text/css" href="/css/messagesBox.css">
+<div id="totalBox">
+    <div id="imgWrapper">
+        {{!-- {{IMAGES GOES HERE}} --}}
+        <img src = "https://randomuser.me/api/portraits/men/60.jpg" id="profilePic" height="80" width="80">
+    </div>
+    <form action="/sendMessage" method="post" id="formBox">
+        <input type="text" name="subject" placeholder="subject" id="subject"><br>
+        <textarea name="message" rows="5" cols="30" id="details" placeholder="message details..."></textarea><br>
+        <input type="submit" value="Message" id="messageButton">
+    </form>
+</div>

@@ -1,0 +1,34 @@
+<div class="container">
+    {{>header}}
+    <div class="secondRow">
+        {{#each people}}
+        <div class="row">
+            <div class="col-md-2">
+                <img class="artistImg img-responsive img-circle" style="width:50px;" src={{this.img_url}} />
+            </div>
+            <div class="col-md-9 col-md-offset-1">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6>{{this.title}}</h6>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" class="btn btn-info">{{this.topic}}</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>{{this.topic_desc}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <p>{{this.date}}</p>
+                    </div>
+      
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+</div>

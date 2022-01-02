@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="firstRow">
+    <div class="row">
+      <div class="col-md-6">
+        <h1 class="header">knowledge<span id="head">Base</span> </h1>
+      </div>
+      <div class="col-md-6">
+        <div class="login">
+          <form autocomplete="off" action="/login" method="POST">
+            <div class="row">
+              <div class="col-md-4 login-email">
+                <input type="email" class="form-control" id="email" placeholder="email" name="email" required />
+              </div>
+              <div class="col-md-4 login-pwd">
+                <input type="password" class="form-control" id="pwd" placeholder="password" name="pwd" required />
+              </div>
+              <div class="col-md-4 login-btn">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        {{#if errorLoginMessage}}
+        <p class="emailExistAlert">{{errorLoginMessage}}</p>
+        {{/if}}
+        
+      </div>
+    </div>
+  </div>
+  <div class="SecondRow">
+    <div class="row">
+      <div class="col-md-6">
+        <img src="/img/mainImage.jpg" class="booksImg">
+      </div>
+      <div class="col-md-6">
+        <h2 class="main_phase"> <strong>Join the worlds largest community for knowledge sharing</strong></h2>
+        <div class="signup">
+          <form action="/signup" method="POST" autocomplete="off">
+            <div class="row">
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="firstName" placeholder="first name" name="firstName"
+                  required />
+              </div>
+              <div class="col-md-6">
+                <input type="text" class="form-control" id="lastName" placeholder="last name" name="lastName"
+                  required />
+              </div>
+            </div>
+            <br>
+            <input type="email" class="form-control" id="email" placeholder="email" name="email" required />
+            {{#if errorSignupMessage}}
+            <p class="emailExistAlert">{{errorSignupMessage}}</p>
+            {{else}}
+            <br>
+            {{/if}}
+            <input type="password" class="form-control" id="pwd1" placeholder="password" name="pwd1" required />
+            <br>
+            <input type="password" class="form-control" id="pwd2" placeholder="confirm password" name="pwd2" onChange="checkPasswordMatch();" required />
+            <div class="registrationFormAlert" id="divCheckPasswordMatch"></div>
+            <button type="submit" class="btn btn-primary btn-block" id="signupbtn">Signup</button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

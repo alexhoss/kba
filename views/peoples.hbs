@@ -1,0 +1,30 @@
+  
+    {{#if user}}
+    <a type = "button" class = "btn btn-default" href = "/logout">Log out</a>
+{{/if}}
+    
+    <div class="container col-md-7  artistSearch">
+        {{#each people}}
+   
+        <div class="peoples">
+
+            <a href="profiles/{{this.id}}"> <img class="artistImg" style="width:50px;" src={{this.img_url}} /></a>
+            
+           
+            <div> 
+                <p><b>{{this.name}}</b></p>
+                 <p><b>id: {{this.id}}</b></p>
+                <p>{{this.description}} 
+                    <form action="/like/{{this.id}}" method="POST">
+                    <button  class="btn btn-primary" type="submit">Like</button>
+                    
+                    </form>
+                    
+                
+                
+            </div>
+        </div>
+   
+{{/each}}
+
+    </div>

@@ -1,0 +1,167 @@
+
+<div class="container">
+    {{>header}}
+    <div class="secondRow">
+        <div class="row">
+            <div class="col-md-4">
+{{>profile_left}}
+            </div>
+            <div class="col-md-8">
+                <h2 class="main_phase"> <strong>What's your question today?</strong></h2>
+                <br>
+                <div class="signup">
+                    <form action="/postRequest" method="POST" autocomplete="off">
+                        <input type="text" class="form-control" id="subject" placeholder="subject" name="subject"
+                            required />
+                        <br>
+                        <input type="text" class="form-control" id="explain" placeholder="explain in detail"
+                            name="explain" required />
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <select name="topic">
+                                    <option value="" selected disabled hidden>topic</option>
+                                    <option value="php">php</option>
+                                    <option value="nodejs">nodejs</option>
+                                    <option value="java">java</option>
+                                    <option value="sql">sql</option>
+                                    <option value="zend">zend</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3 login-btn">
+                                <button type="submit" class="btn btn-primary">post to timeline</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <br>
+                <div>
+                    <form action="/search_results" method="GET" autocomplete="off">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h5>Search by topic</h5>
+                            </div>
+                            <div class="col-md-4">
+                                <select name="search">
+                                    <option value="php">php</option>
+                                    <option value="nodejs">nodejs</option>
+                                    <option value="java">java</option>
+                                    <option value="sql">sql</option>
+                                    <option value="zend">zend</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2 login-btn">
+                                <button type="submit" class="btn btn-primary">go -></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="thirdRow">
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-8">
+                <div>
+                    <div class="row">
+                        <h3 class="main_phase">Latest Discussions</h3>
+                    </div>
+                    <br>
+                    <div class="col-md-12">
+                        {{#each people}}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="profiles/{{this.id}}"> <img class=" img-responsive img-circle" style="width:70px;" src={{this.img_url}} /></a>
+                            </div>
+                            <div class="col-md-9 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h4>{{this.title}}</h4>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-info">{{this.topic}}</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>{{this.topic_desc}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <small style="font-size: x-small;">{{this.date}}</small>
+                                    </div>
+                                                                <div class="col-md-4">
+
+                                        <button class="hideReply btn btn-link btn-sm">Replies</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="tohide">
+                                        {{#if this.post_desc}}
+                                        <img src=" {{this.img_url}}" style="width:20px;">
+                                        {{this.post_desc}}
+
+                                        {{/if}}
+
+                                        <form action="/postReply" method="POST"> 
+                                       
+                                            {{!-- ADD SESSION AUTHOR ID --}}
+                                            <input type="text" id="postID" name = "postID" value="{{this.pk_post_id}}" hidden>
+                                          <input type="text" id="replyText" name = "replyText" >
+                                          <br>
+                                            <div class="row">
+
+                                                 <div class= "col-md-8"></div>
+                                            <div class= "col-md-4">
+                                                <button type="submit">Post reply</button> </div>
+                                                </div>
+
+
+
+                                        </form>
+                                        <p><p></p></p>
+                                        </div>
+                                    </div>
+                                    
+                       
+                                </div>
+                            </div>
+                            <p></p><p><p></p>
+                                                    </div>
+                        {{/each}}
+
+                        <br><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <button type="submit" class="btn">Previous</button>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-3">
+                        <button type="submit" class="btn">Next-></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    
+    $('.tohide').hide();
+
+$('.hideReply').on('click', function(){
+  $('.tohide').show();
+})
+</script>
+{{data.imageurl}}
+{{data.textbox}}
+{{data.country}}

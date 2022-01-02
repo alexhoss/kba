@@ -1,0 +1,31 @@
+{
+  "name": "knowledgebase",
+  "version": "1.0.0",
+  "description": "0. git clone 'url' and npm install",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mysql2": "^2.0.1",
+    "node-localstorage": "^2.1.5",
+    "req-flash": "0.0.3"
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexhoss/knowledgeBase.git"
+  },
+  "bugs": {
+    "url": "https://github.com/alexhoss/knowledgeBase/issues"
+  },
+  "homepage": "https://github.com/alexhoss/knowledgeBase#readme"
+}

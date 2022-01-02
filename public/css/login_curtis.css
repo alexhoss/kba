@@ -1,0 +1,42 @@
+
+#booksImg{
+    width: 100%;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+    width: 100%;
+}
+.firstRow{
+    margin-top: 10%;
+    margin-bottom: 5%;
+}
+.login-pwd{
+    padding-right:0% !important;
+}
+.login-email{
+    padding-right:0% !important;
+}
+.login-btn{
+    padding-right:0% !important;
+}
+.signupButton{
+    width: auto;
+}
+/* .btn {
+    background-color: #0099cc;
+    color: white;
+
+    font-size: smaller;
+    width: auto;
+} */
+#head{
+    color: dodgerblue;
+}
+
+.emailExistAlert{
+    color: firebrick;
+}
+#numberss{
+    color: firebrick;
+}

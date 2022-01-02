@@ -1,0 +1,93 @@
+
+
+<div class="container">
+    {{>header}}
+    <div class="secondRow">
+        <div class="row">
+            <div class="col-md-4">
+                {{>profile_left}}
+            </div>
+            <div class="col-md-8">
+                <h2 class="main_phase"> <strong>All Posts</strong></h2>
+                <div>
+                    <br>
+                    <div class="col-md-12">
+                        {{#each people}}
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="artistImg img-responsive img-circle" style="width:50px;" src={{this.img_url}} />
+                            </div>
+                            <div class="col-md-9 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h4>{{this.title}}</h4>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-info">{{this.topic}}</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p>{{this.topic_desc}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <small style="font-size: x-small;">{{this.date}}</small>
+                                        <p></p><p></p>
+                                    
+                                    </div>
+                                    <div class="col-md-4">
+
+                                        <button class="hideReply btn btn-link btn-sm">Replies</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="tohide">
+                                        {{#if this.post_desc}}
+                                        <img src=" {{this.img_url}}" style="width:20px;">
+                                        {{this.post_desc}}
+
+                                        {{/if}}
+
+                                        <form action="/postReply" method="POST"> 
+                                       
+                                            {{!-- ADD SESSION AUTHOR ID --}}
+                                            <input type="text" id="postID" name = "postID" value="{{this.pk_post_id}}" hidden>
+                                          <input type="text" id="replyText" name = "replyText" >
+                                          <br>
+                                            <div class="row">
+
+                                                 <div class= "col-md-8"></div>
+                                            <div class= "col-md-4">
+                                                <button type="submit">Post reply</button> </div>
+                                                </div>
+
+
+
+                                        </form>
+                                        <p><p></p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    $('.tohide').hide();
+
+$('.hideReply').on('click', function(){
+   	$('.tohide').show();
+})
+</script>

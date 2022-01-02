@@ -1,0 +1,44 @@
+
+<link rel="stylesheet" type="text/css" href="/css/messages.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<div class="column left">
+  <div id="totalMessages">
+    {{#each subjects}}
+      <div class="currentSubject">
+        <div class="imgWrapper">
+            <img src = {{this.image}} class="profilePic1" height="50" width="50">
+        </div>
+        <div class=textWrapper>
+            <span class="user">{{this.name}}</span></br>
+            <span class="subject">{{this.subject}}</span> 
+        </div>
+        <div class="date1">
+          {{this.monthDay}}
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>
+<div class="column right">
+  <div id="current">
+    <div id="currentMessages">
+      {{#each messages}}
+      {{!-- <h5 id="date"><span class="date">{{this.monthDay}} </span></h5> --}}
+      <div class="currentMessage">
+        <div class=imgWrapper>
+            <img src = "{{this.image}} " id="profilePic" height="50" width="50">
+        </div>
+          <span class="name2">{{this.name}}  🞄 </span> <span class="time">{{this.time}} </span>
+          <div class="singleMessage">
+            {{this.content}} 
+          </div>
+      </div>
+      {{/each}}
+      <form id="formBox" action="/sendMessage" method="post">
+          <textarea id = messageBox placeholder="write a message..." name="txtcomment"></textarea>
+        <div id="sendBox">
+            <input id="sendButton" type="submit" value="Send">
+        </div>
+      <form>
+  </div>
+</div>
