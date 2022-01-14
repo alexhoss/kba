@@ -7,21 +7,20 @@
 {{>profile_left}}
             </div>
             <div class="col-md-8">
-                <h2 class="main_phase"> <strong>What's your question today?</strong></h2>
+                <h2 class="main_phase"> <strong>What's on your mind today?</strong></h2>
                 <br>
                 <div class="signup">
                     <form action="/postRequest" method="POST" autocomplete="off">
                         <input type="text" class="form-control" id="subject" placeholder="subject" name="subject"
                             required />
                         <br>
-                        <input type="text" class="form-control" id="explain" placeholder="explain in detail"
-                            name="explain" required />
+                        <input type="textarea" class="form-control" id="explain" placeholder="body"
+                            name="explain"  required />
                         <br>
                         <div class="row">
                             <div class="col-md-4">
                                 <select name="topic">
-                                    <option value="" selected disabled hidden>topic</option>
-                                    <option value="php">php</option>
+                                    <option value="php" selected="selected">php</option>
                                     <option value="nodejs">nodejs</option>
                                     <option value="java">java</option>
                                     <option value="sql">sql</option>
@@ -29,7 +28,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3 login-btn">
-                                <button type="submit" class="btn btn-primary">post to timeline</button>
+                                <button type="submit" class="btn btn-primary">Post</button>
                             </div>
                         </div>
                     </form>
@@ -37,6 +36,9 @@
 
                 <br>
                 <div>
+
+                    <br><br><br>
+                    <br><br><br>
                     <form action="/search_results" method="GET" autocomplete="off">
                         <div class="row">
                             <div class="col-md-4">
@@ -52,7 +54,7 @@
                                 </select>
                             </div>
                             <div class="col-md-2 login-btn">
-                                <button type="submit" class="btn btn-primary">go -></button>
+                                <button type="submit" class="btn btn-primary">Go</button>
                             </div>
                         </div>
                     </form>
@@ -66,7 +68,10 @@
             </div>
             <div class="col-md-8">
                 <div>
+
+                    <br><br>
                     <div class="row">
+                        
                         <h3 class="main_phase">Latest Discussions</h3>
                     </div>
                     <br>
@@ -140,12 +145,12 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3">
-                        <button type="submit" class="btn">Previous</button>
+                        <button type="submit" class="btn"></button>
                     </div>
                     <div class="col-md-4">
                     </div>
                     <div class="col-md-3">
-                        <button type="submit" class="btn">Next-></button>
+                        <button type="submit" class="btn"></button>
                     </div>
                 </div>
             </div>
